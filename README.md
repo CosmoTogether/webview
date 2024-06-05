@@ -1,3 +1,3 @@
 To run:
-pnpm install
-pnpm run dev
+- pnpm install
+- pnpm run dev
