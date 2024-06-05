@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Container,
+  Box,
+  Grid,
+  BottomNavigation,
+  BottomNavigationAction,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import RestoreIcon from "@mui/icons-material/Restore";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import AllInboxIcon from "@mui/icons-material/AllInbox";
+import AudioFileIcon from "@mui/icons-material/AudioFile";
+import BedIcon from "@mui/icons-material/Bed";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Box sx={{ minWith: "100vw", minHeight: "100vh" }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Header
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <IconButton>
+              <AccountBalanceIcon />
+            </IconButton>
+            <IconButton>
+              <AllInboxIcon />
+            </IconButton>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <IconButton>
+              <AudioFileIcon />
+            </IconButton>
+            <IconButton>
+              <BedIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
+      </Container>
+      <BottomNavigation
+        showLabels
+        sx={{ position: "fixed", bottom: 0, width: "100vw", borderWidth: 1, borderColor: "gray", borderStyle: "solid" }}
+      >
+        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      </BottomNavigation>
+    </Box>
+  );
+};
 
-export default App
+export default App;
